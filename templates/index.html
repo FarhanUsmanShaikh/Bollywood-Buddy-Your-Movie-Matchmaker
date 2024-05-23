@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bollywood Buddy: Your Movie Matchmaker</title>
+    <!-- External CSS styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #ff4e50, #f9d423); /* Gradient background */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            color: #333; /* Text color */
+        }
+        .container {
+            background: #fff; /* White background */
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Box shadow effect */
+            border-radius: 15px; /* Rounded corners */
+            width: 400px;
+            text-align: center;
+            transition: transform 0.2s ease-in-out; /* Smooth scaling transition */
+        }
+        .container:hover {
+            transform: scale(1.02); /* Scale up on hover */
+        }
+        h1 {
+            color: #ff4e50; /* Reddish title color */
+            font-size: 24px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #ff4e50; /* Reddish submit button background */
+            border: none;
+            color: #fff; /* White text color */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s ease-in-out; /* Smooth background color transition */
+        }
+        input[type="submit"]:hover {
+            background-color: #e63e42; /* Darker reddish hover color */
+        }
+        .recommendations {
+            margin-top: 20px;
+        }
+        .recommendations h3 {
+            margin-bottom: 10px;
+            color: #ff4e50; /* Reddish heading color */
+        }
+        .recommendations p {
+            background: #f0f0f0; /* Light gray background */
+            padding: 15px;
+            border-radius: 5px;
+            text-align: left;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main content container -->
+    <div class="container">
+        <h1>Bollywood Buddy: Your Movie Matchmaker</h1>
+        <!-- Form for user input -->
+        <form action="/" method="post">
+            <input type="text" name="movie_name" placeholder="Enter a movie name here">
+            <input type="submit" value="Recommend">
+        </form>
+        <!-- Display recommended movies -->
+        <div class="recommendations">
+            {% if recommendation_text %}
+                <h3>Recommended Movies:</h3>
+                <!-- Display recommended movies as paragraphs -->
+                <p>{{ recommendation_text|safe}}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
